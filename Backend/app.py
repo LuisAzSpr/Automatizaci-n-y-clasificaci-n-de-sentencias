@@ -18,11 +18,11 @@ bucket = storage_client.bucket("automatizacion-casillero")
 # Función auxiliar para abrir conexión a PostgreSQL
 def get_db_connection():
     return psycopg2.connect(
-        host="localhost",
-        port=5432,
-        dbname="casillero-judicial",
-        user=os.getenv("username-db"),
-        password=os.getenv("password-db")
+        host=os.getenv("DB-HOST"),
+        port=os.getenv("DB-PORT"),
+        dbname=os.getenv("DB-NAME"),
+        user=os.getenv("USERNAME-DB"),
+        password=os.getenv("PASSWORD-DB")
     )
 
 @app.get("/descargar/{ndetalle}")
